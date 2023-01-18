@@ -98,7 +98,8 @@ public class RunningTest {
 
       (2) 해당 설명에 부합하는 키워드를 적으시오.
       
-        a) Entity 외의 ___이 걸린 연관 Entity도 같이 SELECT 하여 모두 영속화된다, Lazy인 Entity를 참조하더라도 이미 영속성 컨텍스트에 포함되어 따로 쿼리가 실행되지 않고 N+1 문제가 해결된다.
+        a) Entity 외의 ___이 걸린 연관 Entity도 같이 SELECT 하여 모두 영속화된다,
+	   Lazy인 Entity를 참조하더라도 이미 영속성 컨텍스트에 포함되어 따로 쿼리가 실행되지 않고 N+1 문제가 해결된다.
         b) 연관 Entity에 ___을 걸어도 실제 쿼리에서 SELECT 하는 Entity는 오직 JPQL에서 조회하는 주체 Entity만 SELECT 해서 영속화한다.
 	  a) ________
 	  b) ________
