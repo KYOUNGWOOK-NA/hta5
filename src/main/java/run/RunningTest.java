@@ -2,8 +2,8 @@ package run;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.persistence.[[A]];
+import javax.persistence.[[B]];
 
 import util.DBUtil;
 import model.domain.entity.Dept;
@@ -11,12 +11,12 @@ import model.domain.entity.Emp;
 
 public class RunningTest {
 	public static void main(String[] args) {
-		EntityManager em = DBUtil.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
+		[[A]] em = DBUtil.get[[A]]();
+		[[B]] tx = em.get[[B]]();
 		tx.begin();
-/*		
-		Dept d1 = new Dept("Dept_A");
-		Dept d2 = new Dept("Dept_B");
+	
+		[[C]] d1 = new Dept("Dept_A");
+		[[C]] d2 = new Dept("Dept_B");
 		
 		Emp e1 = new Emp();
 		e1.setEname("nineveh");
@@ -25,7 +25,7 @@ public class RunningTest {
 		e1.setHiredate("2023.01.11");
 		e1.setSal(111);
 		e1.setComm(11);
-		e1.setDept(d1);
+		e1.set[[C]](d1);
 
 		Emp e2 = new Emp();
 		e2.setEname("eadalyn");
@@ -34,19 +34,19 @@ public class RunningTest {
 		e2.setHiredate("2022.02.22");
 		e2.setSal(222);
 		e2.setComm(22);
-		e2.setDept(d1);
+		e2.set[[C]](d1);
 		
-		d1.getEmps().add(e1);
-		d1.getEmps().add(e2);
+		d1.getEmps().[[D]](e1);
+		d1.getEmps().[[D]](e2);
 		
-		em.persist(d1);
-		em.persist(d2);
-		em.persist(e1);
-		em.persist(e2);
-*/
-		//TeamA�� �Ҽӵ� ������ �̸��� ���
-		//select �˻� �ڵ�� ����
-		Dept searchDept = em.find(Dept.class, 1l);
+		em.[[E]](d1);
+		em.[[E]](d2);
+		em.[[E]](e1);
+		em.[[E]](e2);
+
+		//Dept_A에 소속된 선수들 이름만 출력
+		//select 검색 코드로 개발
+		Dept searchDept = em.[[F]](Dept.class, 1l);
 		List<Emp> all = searchDept.getEmps();
 		for(Emp m : all) {
 			System.out.println(m.getEname());
@@ -57,3 +57,16 @@ public class RunningTest {
 		em.close();
 	}
 }
+
+/*
+  Q. [[A]] ~ [[F]]에 들어갈 코드를 보기에서 골라 적절히 배치하시오.
+  	* [[C]]의 경우 Model 패키지의 Dept, Emp 테이블을 참고하여 작성하세요.
+    
+    1. EntityTransaction
+    2. persist
+    3. Dept
+    4. EntityManager
+    5. find
+    6. add
+    
+*/
